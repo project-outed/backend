@@ -1,7 +1,9 @@
-pub mod discord_event;
+pub mod discord;
 pub mod user;
 pub mod report;
+pub mod websocket;
 
-pub use discord_event::*;
+pub use discord::*;
 pub use user::*;
 pub use report::*;
+pub use websocket::*;

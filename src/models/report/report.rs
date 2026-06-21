@@ -2,7 +2,9 @@ use serde::{Deserialize, Serialize};
 use chrono::{DateTime, Utc};
 use sqlx::FromRow;
 
-#[derive(Debug, Serialize, Deserialize, Clone, FromRow)]
+use super::evidence::Evidence;
+
+#[derive(Debug, Serialize, Deserialize, FromRow, Clone)]
 pub struct Report {
     pub id: Option<i64>,
     pub target_username: String,
@@ -16,14 +18,4 @@ pub struct Report {
     pub updated_at: Option<DateTime<Utc>>,
     #[sqlx(skip)]
     pub evidence: Vec<Evidence>,
-}
-
-
-#[derive(Debug, Serialize, Deserialize, FromRow, Clone)]
-pub struct Evidence {
-    pub id: Option<i64>,
-    pub report_id: i64,
-    pub url: String,
-    pub evidence_type: String, 
-    pub created_at: Option<DateTime<Utc>>,
 }

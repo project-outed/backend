@@ -39,7 +39,9 @@ impl RedisClient {
                             } else {
                                 is_healthy = false;
                             }
-                        } else
+                        } else {
+                            is_healthy = false;
+                        }
                     }
                 }
 

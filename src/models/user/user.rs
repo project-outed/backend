@@ -2,22 +2,8 @@ use serde::{Deserialize, Serialize};
 use chrono::{DateTime, Utc};
 use sqlx::FromRow;
 
-use crate::models::Report;
-
-impl User {
-    pub fn __CalculateTrustScore(report_count: i64) -> i32 {
-        match report_count {
-            0 => 100,
-            1 => 85,
-            2 => 70,
-            3 => 55,
-            4 => 35,
-            5 => 22,
-            6 => 14, 
-            _ => 6,
-        }
-    }
-}
+use super::providers::Providers;
+use crate::models::report::Report;
 
 #[derive(Debug, Serialize, Deserialize, Clone, FromRow)]
 pub struct User {
@@ -30,7 +16,7 @@ pub struct User {
     pub mail: Option<String>,
     pub verified: Option<i32>,
     pub trust_score: Option<i32>,
-    
+
     pub created_at: Option<DateTime<Utc>>,
     pub updated_at: Option<DateTime<Utc>>,
 
@@ -38,4 +24,17 @@ pub struct User {
     pub reports: Vec<Report>,
 }
 
-
+impl User {
+    pub fn calculate_trust_score(report_count: i64) -> i32 {
+        match report_count {
+            0 => 100,
+            1 => 85,
+            2 => 70,
+            3 => 55,
+            4 => 35,
+            5 => 22,
+            6 => 14,
+            _ => 6,
+        }
+    }
+}

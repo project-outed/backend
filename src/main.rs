@@ -3,6 +3,7 @@ use tokio::sync::broadcast;
 
 mod state;
 mod utils;
+mod models;
 mod routes;
 mod handlers;
 
