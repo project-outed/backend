@@ -1,0 +1,16 @@
+{
+    "id": 1,
+    "target_user_name": "",
+    "target_userid": 1234567890,
+    "reporter_username": "",
+    "reporter_user_id": 1234567890,
+    "game": "",
+    "reason": "",
+    "status": [
+        "pending",
+        "accepted",
+        "declined"
+    ],
+    "created_at": "<time>",
+    "updated_at": "<time>"
+}

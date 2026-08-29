@@ -1,0 +1,503 @@
+{
+	"info": {
+		"_postman_id": "d1a2b3c4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+		"name": "Outed Backend API",
+		"description": "Postman collection for Outed Backend API.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Utilities",
+			"item": [
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/health",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reports (Exposures Workflow)",
+			"item": [
+				{
+					"name": "Create Expose (With Platform IDs + Game)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "lucas_secret_api_key_1337"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "target_user_name",
+									"value": "Luc_777",
+									"type": "text"
+								},
+								{
+									"key": "target_userid",
+									"value": "1234567890",
+									"type": "text"
+								},
+								{
+									"key": "reporter_username",
+									"value": "Admin_1",
+									"type": "text"
+								},
+								{
+									"key": "reporter_user_id",
+									"value": "9876543210",
+									"type": "text"
+								},
+								{
+									"key": "game",
+									"value": "Minecraft",
+									"type": "text"
+								},
+								{
+									"key": "reason",
+									"value": "Killaura & Speed",
+									"type": "text"
+								},
+								{
+									"key": "evidence",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/reports",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"reports"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search (Lookup any ID)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "lucas_secret_api_key_1337"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/reports/lookup?target_id=1234567890",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"reports",
+								"lookup"
+							],
+							"query": [
+								{
+									"key": "target_id",
+									"value": "1234567890",
+									"description": "Type any ID (Discord/FiveM/Name) to search."
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Accept Reports",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "lucas_secret_api_key_1337"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/reports/1/accept",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"reports",
+								"1",
+								"accept"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Decline Reports",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "lucas_secret_api_key_1337"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/reports/1/decline",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"reports",
+								"1",
+								"decline"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Report Details",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "lucas_secret_api_key_1337"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"reason\": \"Updated reasons list for this person\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/reports/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"reports",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Quick Upload",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "lucas_secret_api_key_1337"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/reports/upload",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"reports",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Evidence List for Report",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "lucas_secret_api_key_1337"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/reports/1/evidence",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"reports",
+								"1",
+								"evidence"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download Evidence File",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "lucas_secret_api_key_1337"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/reports/1/evidence/55",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"reports",
+								"1",
+								"evidence",
+								"55"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "lucas_secret_api_key_1337"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"providers\": {\n        \"discord\": {\n            \"username\": \"Ghost_the_killer\",\n            \"id\": \"676685347542925352\",\n            \"avatar\": \"https://cdn.discordapp.com/avatars/676685347542925352/e685b919e81ae29514c6f3161ca9946e.png\"\n        },\n        \"fivem\": {\n            \"username\": \"LucasFiveM\",\n            \"identifiers\": [\n                \"license:abc\",\n                \"ip:127.0.0.1\"\n            ]\n        },\n        \"hardwareIds\": [\n            \"hwid_1\",\n            \"hwid_2\"\n        ]\n    },\n    \"mail\": \"lucas@example.com\",\n    \"verified\": 0,\n    \"trust_score\": 100\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "lucas_secret_api_key_1337"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "lucas_secret_api_key_1337"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Providers Only",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "lucas_secret_api_key_1337"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/1/providers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1",
+								"providers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Partial Update Providers",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "lucas_secret_api_key_1337"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"discord\": {\n        \"username\": \"UpdatedName\",\n        \"id\": \"123456789\",\n        \"avatar\": \"https://...\"\n    },\n    \"hardwareIds\": [\n        \"new_hwid_999\"\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/1/providers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1",
+								"providers"
+							]
+						},
+						"description": "Uses JSONB merge (||) on the backend. Only provided keys will be updated; others remain unchanged."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Mail & Verification",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "lucas_secret_api_key_1337"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mail\": \"new_mail@example.com\",\n    \"verified\": 1\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/1/mail-verified",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1",
+								"mail-verified"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "lucas_secret_api_key_1337"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://127.0.0.1:3000"
+		}
+	]
+}

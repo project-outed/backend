@@ -1,0 +1,22 @@
+{
+    "id": 0,
+    "guild_id": "<snowflake>",
+    "guild_name": "<string>",
+    "guild_owner": "<snowflake>",
+    "guild_members": [
+        "<snowflake>"
+    ],
+    "alert_channel": "<snowflake>",
+    "alert_role": "<snowflake>",
+    "identifiers_showed": [
+        "steam",
+        "discord",
+        "fivem",
+        "hardware",
+        "xbl",
+        "live"
+    ],
+    "is_active": true,
+    "created_at": "<time>",
+    "updated_at": "<time>"
+}

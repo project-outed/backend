@@ -1,0 +1,28 @@
+{
+    "id": 1,
+    "providers": {
+        "discord": {
+            "username": "",
+            "id": "",
+            "avatar": ""
+        },
+        "fivem": {
+            "username": "",
+            "identifiers": [
+                "",
+                ""
+            ]
+        },
+        "hardwareIds": [
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    "mail": "",
+    "verified": 1,
+    "trust_score": 100,
+    "created_at": "",
+    "updated_at": ""
+}
